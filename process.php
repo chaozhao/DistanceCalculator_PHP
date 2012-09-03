@@ -39,7 +39,7 @@ document.write(resulttxt);
   echo "An error occured while connecting.\n";
   exit;
 }
-pg_query($dbconn, "INSERT INTO Coords VALUES ($long, $lat)");
+pg_query($dbconn, "INSERT INTO Coords VALUES ($long, $lat, CURRENT_TIMESTAMP)");
 
 $result = pg_query($dbconn, "SELECT * FROM Coords");
 if (!$result) {
