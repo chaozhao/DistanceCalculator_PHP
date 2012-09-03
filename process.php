@@ -13,7 +13,7 @@
 		<h1><a>Database table</a></h1>
 		<?php
 			$long =  $_POST['longitude'];
-			$lat =  $_POST['latitude']
+			$lat =  $_POST['latitude'];
 			
 			$swin = new LatLon(51.5136, -0.0983);
 			$point = new LatLon($lat, $long);
