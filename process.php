@@ -10,26 +10,30 @@
 
 <?php
 	
-	//connect to remote database
-	//$databaseconn = pg_connect("host=ec2-23-23-92-180.compute-1.amazonaws.com port=5432 dbname=d5esbqm1g7orap user=zmffjoapewndxl password=r7mnCO1hMRPy2R8ask5BCsd3s7 connect_timeout=5");
-
 	//connect to a locahost database
-	$databaseconn = pg_connect("host=localhost port=5432 dbname=d5esbqm1g7orap user=zmffjoapewndxl password=r7mnCO1hMRPy2R8ask5BCsd3s7 connect_timeout=5");
+	$connstring = "host=localhost "; 
+	//connect to remote database
+	//$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
+	$connstring .= "port=5432 ";
+	$connstring .= "dbname=d5esbqm1g7orap ";
+	$connstring .= "user=zmffjoapewndxl ";
+	$connstring .= "password=r7mnCO1hMRPy2R8ask5BCsd3s7";
 	
-	echo "Database test";
+	$databaseconn = pg_connect($connstring);
+	
+	echo "Database test <br/>";
 	
 	$long =  $_POST['longitude'];
 	$lat =  $_POST['latitude'];
-			
+	
+	echo $long;
+	echo "<br/>";
+	echo $lat;
+
 	$swin = new LatLon(51.5136, -0.0983);
 	$point = new LatLon($lat, $long);
 			
 	$dist = $swin.distanceTo($point);
-			
-	echo "$lat, $long, $dist";
+
 ?> 
-
-
-
-
 </html>
