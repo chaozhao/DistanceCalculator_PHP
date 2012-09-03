@@ -9,8 +9,11 @@
 </head>
 
 <?php
+	
+	//connect to remote database
+	//$databaseconn = pg_connect("host=ec2-23-23-92-180.compute-1.amazonaws.com port=5432 dbname=d5esbqm1g7orap user=zmffjoapewndxl password=r7mnCO1hMRPy2R8ask5BCsd3s7 connect_timeout=5");
 
-	//connect to a database named "mary" on the host "sheep" with a username and password
+	//connect to a locahost database
 	$databaseconn = pg_connect("host=localhost port=5432 dbname=d5esbqm1g7orap user=zmffjoapewndxl password=r7mnCO1hMRPy2R8ask5BCsd3s7 connect_timeout=5");
 	
 	echo "Database test";
