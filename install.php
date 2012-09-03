@@ -1,4 +1,5 @@
 <?php
+	
 	//connect to remote database
 	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
 	$connstring .= "port=5432 ";
@@ -15,7 +16,8 @@
 
 $result = pg_query($dbconn, "SELECT * FROM Coords");
 if (!$result) {
-  pg_query($dbconn, "CREATE TABLE [ IF NOT EXISTS ] Coords
+	echo "Creating table";
+ pg_query($dbconn, "CREATE TABLE [ IF NOT EXISTS ] Coords
 (
   longitude double  NOT NULL,
   latitude   double NOT NULL,
@@ -23,6 +25,9 @@ if (!$result) {
   PRIMARY KEY (time_stamp)
 );"
 }
-else exit;
+else {
+echo "Already Installed";
+exit;
+}
 
 ?>
