@@ -17,13 +17,12 @@
 $result = pg_query($dbconn, "SELECT * FROM Coords");
 if (!$result) {
 	echo "Creating table";
- pg_query($dbconn, "CREATE TABLE [ IF NOT EXISTS ] Coords
-(
-  longitude double  NOT NULL,
-  latitude   double NOT NULL,
-  time_stamp    timestamp      NOT NULL,
-  PRIMARY KEY (time_stamp)
-);"
+	pg_query($dbconn, "CREATE TABLE [ IF NOT EXISTS ] Coords (
+	longitude double  NOT NULL,
+	latitude   double NOT NULL,
+	time_stamp    timestamp      NOT NULL,
+	PRIMARY KEY (time_stamp)
+	)");
 }
 else {
 echo "Already Installed";
