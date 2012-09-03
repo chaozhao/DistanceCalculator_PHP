@@ -9,6 +9,10 @@
 </head>
 
 <?php
+
+	//connect to a database named "mary" on the host "sheep" with a username and password
+	$databaseconn = pg_connect("host=localhost port=5432 dbname=d5esbqm1g7orap user=zmffjoapewndxl password=r7mnCO1hMRPy2R8ask5BCsd3s7 connect_timeout=5");
+	
 	echo "Database test";
 	
 	$long =  $_POST['longitude'];
@@ -21,5 +25,8 @@
 			
 	echo "$lat, $long, $dist";
 ?> 
+
+
+
 
 </html>
