@@ -3,37 +3,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HIT3311</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
 <script type="text/JavaScript" src="latlong.js"></script> 
 </head>
 
 <?php
-	
-	//connect to a locahost database
-	$connstring = "host=localhost "; 
+//connect to a locahost database
+	//$connstring = "host=localhost "; 
 	//connect to remote database
-	//$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
+	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
 	$connstring .= "port=5432 ";
 	$connstring .= "dbname=d5esbqm1g7orap ";
 	$connstring .= "user=zmffjoapewndxl ";
 	$connstring .= "password=r7mnCO1hMRPy2R8ask5BCsd3s7";
 	
 	$databaseconn = pg_connect($connstring);
-	
-	echo "Database test <br/>";
-	
+		
 	$long =  $_POST['longitude'];
 	$lat =  $_POST['latitude'];
-	
-	echo $long;
-	echo "<br/>";
-	echo $lat;
+?>		
+<script type="text/javascript">
 
-	$swin = new LatLon(51.5136, -0.0983);
-	$point = new LatLon($lat, $long);
+var swin = new LatLon(51.5136, -0.0983); 
+var point = new LatLon(<?php echo "$lat, $long"?>); 
 			
-	$dist = $swin.distanceTo($point);
+var dist = swin.distanceTo(point);
 
-?> 
+var resulttxt = "Coordingates <?php echo "latitude $lat, longitude $long"?> is " + dist + " kilometres from Swinburne.";
+
+document.write(resulttxt);
+
+</script>
+
 </html>
