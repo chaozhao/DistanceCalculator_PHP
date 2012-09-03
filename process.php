@@ -5,12 +5,23 @@
 <title>HIT3311</title>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
 <script type="text/javascript" src="view.js"></script>
+<script type="text/JavaScript" src="latlong.js"></script> 
 </head>
 
 <body id="main_body" >
 	<div id="form_container">
 		<h1><a>Database table</a></h1>
-		<p><?php echo $_POST["element_1"]; ?> </p>
+		<?php
+			$long =  $_POST['longitude'];
+			$lat =  $_POST['latitude']
+			
+			$swin = new LatLon(51.5136, -0.0983);
+			$point = new LatLon($lat, $long);
+			
+			$dist = $swin.distanceTo($point);
+			
+			echo "$lat, $long, $dist"
+		?> 
 	</div>
 	</body>
 </html>
