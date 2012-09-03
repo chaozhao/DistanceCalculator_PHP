@@ -8,20 +8,18 @@
 <script type="text/JavaScript" src="latlong.js"></script> 
 </head>
 
-<body id="main_body" >
-	<div id="form_container">
-		<h1><a>Database table</a></h1>
-		<?php
-			$long =  $_POST['longitude'];
-			$lat =  $_POST['latitude'];
+<?php
+	echo "Database test";
+	
+	$long =  $_POST['longitude'];
+	$lat =  $_POST['latitude'];
 			
-			$swin = new LatLon(51.5136, -0.0983);
-			$point = new LatLon($lat, $long);
+	$swin = new LatLon(51.5136, -0.0983);
+	$point = new LatLon($lat, $long);
 			
-			$dist = $swin.distanceTo($point);
+	$dist = $swin.distanceTo($point);
 			
-			echo "$lat, $long, $dist";
-		?> 
-	</div>
-	</body>
+	echo "$lat, $long, $dist";
+?> 
+
 </html>
