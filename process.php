@@ -20,7 +20,7 @@
 			
 			$dist = $swin.distanceTo($point);
 			
-			echo "$lat, $long, $dist"
+			echo "$lat, $long, $dist";
 		?> 
 	</div>
 	</body>
