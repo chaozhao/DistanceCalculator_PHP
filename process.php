@@ -36,14 +36,14 @@ document.write(resulttxt);
 <?php
 
 	if (!$dbconn) {
-  echo "An error occured.\n";
+  echo "An error occured while connecting.\n";
   exit;
 }
 pg_query($dbconn, "INSERT INTO Coords VALUES ($long, $lat)");
 
 $result = pg_query($dbconn, "SELECT * FROM Coords");
 if (!$result) {
-  echo "An error occured.\n";
+  echo "An error occured when retrieving data.\n";
   exit;
 }
 ?>
