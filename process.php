@@ -55,6 +55,7 @@ if (!$result) {
 <td><font face="Arial, Helvetica, sans-serif">Distance</font></td>
 </tr>
 
+/*
 <?php
 while ($row = pg_fetch_row($result)) {
 	$lat = $row[1];
@@ -74,7 +75,7 @@ while ($row = pg_fetch_row($result)) {
 <td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">document.write(dist);</script></font></td>
 </tr>
 }
-
+*/
 <?php
 	pg_close($dbconn);
 ?>
