@@ -14,30 +14,34 @@
 	exit;
 }
 
-
 $drop = "Drop table coords";
+
 $dropresult = pg_query($dbconn, $drop);
 
 if ($dropresult) 
 {
-	echo "droped <br/>";
+	echo "table coords droped <br/>";
 }
 else 
 {
-	echo "failed <br/>";
+	echo "table coords not exists <br/>";
 }
 
+$createtable = "CREATE TABLE coords (";
+$createtable .= "longitude decimal NOT NULL, ";
+$createtable .= "latitude decimal NOT NULL, ";
+$createtable .= "time_stamp timestamp NOT NULL,";
+$createtable .= "PRIMARY KEY (time_stamp));";
 
-$createtable = "CREATE TABLE IF NOT EXISTS coords (longitude decimal NOT NULL,	latitude decimal NOT NULL,	time_stamp timestamp NOT NULL,	PRIMARY KEY (time_stamp))";
 $result = pg_query($dbconn, $createtable);
 
 if ($result) 
 {
-	echo "table is created <br/>";
+	echo "table coords created <br/>";
 }
-else {
-echo "Already Installed <br/>";
-exit;
+else 
+{
+	echo "table coords exists <br/>";
 }
 
 ?>
