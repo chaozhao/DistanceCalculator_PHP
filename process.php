@@ -28,7 +28,7 @@ var dist = swin.distanceTo(point);
 
 var resulttxt = "Coordinates <?php echo "latitude $lat, longitude $long"?> is " + dist + " kilometres from Swinburne.";
 
-document.write(resulttxt);
+//document.write(resulttxt);
 
 </script>
 <?php
@@ -41,7 +41,7 @@ document.write(resulttxt);
 
 	$dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
 	pg_query($dbconn, $dbins);
-	$result = pg_query($dbconn, "SELECT 'longitude', 'latitude', 'time_stamp' FROM `coords`");
+	$result = pg_query($dbconn, "SELECT longitude, latitude, time_stamp FROM coords");
 	if (!$result) 
 	{
 	  echo "An error occured when retrieving data.\n";
@@ -63,10 +63,10 @@ while ($row = pg_fetch_row($result))
 	$timest = $row[2];
 
 echo "<tr>";
-echo "<td> timest </font></td>";
-echo "<td> lat </font></td>";
-echo "<td> long </font></td>";
-echo "<td> echo </font></td>";
+echo "<td> $timest </font></td>";
+echo "<td> $lat </font></td>";
+echo "<td> $long </font></td>";
+echo "<td>  </font></td>";
 
 /*
 <script type="text/javascript">
@@ -81,5 +81,5 @@ echo "</tr>";
 echo "</table>";	
 
 ?>
-
+<a href="index.php">go back</a>
 </html>
