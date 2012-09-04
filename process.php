@@ -7,9 +7,7 @@
 </head>
 
 <?php
-//connect to a locahost database
-	//$connstring = "host=localhost "; 
-	//connect to remote database
+
 	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
 	$connstring .= "port=5432 ";
 	$connstring .= "dbname=d5esbqm1g7orap ";
@@ -41,13 +39,13 @@ document.write(resulttxt);
 }
 $dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
 pg_query($dbconn, $dbins);
-/*
-$result = pg_query($dbconn, "SELECT * FROM `coords` WHERE 1");
+
+$result = pg_query($dbconn, "SELECT 'longitude', 'latitude', 'time_stamp' FROM `coords`");
 if (!$result) {
   echo "An error occured when retrieving data.\n";
   exit;
 }
-*/
+
 ?>
 	<table border="0" cellspacing="2" cellpadding="2">
 <tr>
@@ -65,17 +63,17 @@ while ($row = pg_fetch_row($result)) {
 	$long = $row[0];
 	$timest = $row[2];
 ?>
-<script type="text/javascript">
-	var point = new LatLon(<?php echo "$row[1], $row[0]"?>); 
-			
-	var dist = swin.distanceTo(point);
 
-	</script>
 <tr>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $timest; ?></font></td>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $lat; ?></font></td>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $long; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">document.write(dist);</script></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">
+	var point = new LatLon(<?php echo "$lat, $long"?>); 
+			
+	var dist = swin.distanceTo(point);
+	document.write(dist);
+	</script></font></td>
 </tr>
 }
 
