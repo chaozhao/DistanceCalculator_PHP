@@ -39,10 +39,10 @@ document.write(resulttxt);
   echo "An error occured while connecting.\n";
   exit;
 }
-$dbins = "INSERT INTO Coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
+$dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
 pg_query($dbconn, $dbins);
 
-$result = pg_query($dbconn, "SELECT * FROM Coords");
+$result = pg_query($dbconn, "SELECT * FROM coords");
 if (!$result) {
   echo "An error occured when retrieving data.\n";
   exit;

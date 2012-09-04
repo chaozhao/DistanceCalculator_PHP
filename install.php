@@ -14,10 +14,10 @@
 	exit;
 }
 
-$result = pg_query($dbconn, "SELECT * FROM Coords");
+$result = pg_query($dbconn, "SELECT * FROM coords");
 if (!$result) {
 	echo "Creating table";
-	$createtable = "CREATE TABLE Coords (	longitude double NOT NULL,	latitude double NOT NULL,	time_stamp timestamp NOT NULL,	PRIMARY KEY (time_stamp))";
+	$createtable = "CREATE TABLE coords (	longitude double NOT NULL,	latitude double NOT NULL,	time_stamp timestamp NOT NULL,	PRIMARY KEY (time_stamp))";
 	pg_query($dbconn, $createtable);
 }
 else {
