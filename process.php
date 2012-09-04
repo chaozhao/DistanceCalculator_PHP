@@ -21,7 +21,7 @@
 ?>		
 <script type="text/javascript">
 
-var swin = new LatLon(51.5136, -0.0983); 
+var swin = new LatLon(-37.82, 145.04); 
 var point = new LatLon(<?php echo "$lat, $long"?>); 
 			
 var dist = swin.distanceTo(point);
@@ -33,21 +33,23 @@ document.write(resulttxt);
 </script>
 <?php
 
-	if (!$dbconn) {
-  echo "An error occured while connecting.\n";
-  exit;
-}
-$dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
-pg_query($dbconn, $dbins);
+	if (!$dbconn) 
+	{
+	  echo "An error occured while connecting.\n";
+	  exit;
+	}
 
-$result = pg_query($dbconn, "SELECT 'longitude', 'latitude', 'time_stamp' FROM `coords`");
-if (!$result) {
-  echo "An error occured when retrieving data.\n";
-  exit;
-}
+	$dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
+	pg_query($dbconn, $dbins);
+	$result = pg_query($dbconn, "SELECT 'longitude', 'latitude', 'time_stamp' FROM `coords`");
+	if (!$result) 
+	{
+	  echo "An error occured when retrieving data.\n";
+	  exit;
+	}
 
 ?>
-	<table border="0" cellspacing="2" cellpadding="2">
+	<table border="1" cellspacing="2" cellpadding="2">
 <tr>
 <td><font face="Arial, Helvetica, sans-serif">Time</font></td>
 <td><font face="Arial, Helvetica, sans-serif">Latitude</font></td>
@@ -57,25 +59,24 @@ if (!$result) {
 
 
 <?php
-
-while ($row = pg_fetch_row($result)) {
+while ($row = pg_fetch_row($result)) 
+{
 	$lat = $row[1];
 	$long = $row[0];
 	$timest = $row[2];
-?>
-
+/*
 <tr>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $timest; ?></font></td>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $lat; ?></font></td>
 <td><font face="Arial, Helvetica, sans-serif"><?php echo $long; ?></font></td>
 <td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">
 	var point = new LatLon(<?php echo "$lat, $long"?>); 
-			
+	
 	var dist = swin.distanceTo(point);
 	document.write(dist);
 	</script></font></td>
 </tr>
-<?php>
+*/		
 }
 ?>
 
