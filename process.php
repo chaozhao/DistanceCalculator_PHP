@@ -75,6 +75,8 @@ while ($row = pg_fetch_row($result)) {
 	document.write(dist);
 	</script></font></td>
 </tr>
+<?php>
 }
+?>
 
 </html>
