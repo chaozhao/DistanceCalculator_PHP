@@ -45,39 +45,41 @@ document.write(resulttxt);
 	if (!$result) 
 	{
 	  echo "An error occured when retrieving data.\n";
-	  exit;
+	  //exit;
 	}
 
-?>
-	<table border="1" cellspacing="2" cellpadding="2">
-<tr>
-<td><font face="Arial, Helvetica, sans-serif">Time</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Latitude</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Longitude</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Distance</font></td>
-</tr>
+echo " <table border=1> ";
+echo " <tr> ";
+echo " <th>Time</th> ";
+echo " <th>Latitude</th> ";
+echo " <th>Longitude</th> ";
+echo " <th>Distance</th> ";
+echo " </tr> ";
 
-
-<?php
 while ($row = pg_fetch_row($result)) 
 {
-	$lat = $row[1];
 	$long = $row[0];
+	$lat = $row[1];
 	$timest = $row[2];
+
+echo "<tr>";
+echo "<td> timest </font></td>";
+echo "<td> lat </font></td>";
+echo "<td> long </font></td>";
+echo "<td> echo </font></td>";
+
 /*
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $timest; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $lat; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $long; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">
+<script type="text/javascript">
 	var point = new LatLon(<?php echo "$lat, $long"?>); 
-	
 	var dist = swin.distanceTo(point);
-	document.write(dist);
-	</script></font></td>
-</tr>
-*/		
+	document.write(dist); 
+</script>;
+*/
+
+echo "</tr>";
 }
+echo "</table>";	
+
 ?>
 
 </html>
