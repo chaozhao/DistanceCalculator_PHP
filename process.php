@@ -41,12 +41,13 @@ document.write(resulttxt);
 }
 $dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
 pg_query($dbconn, $dbins);
-
-$result = pg_query($dbconn, "SELECT * FROM coords");
+/*
+$result = pg_query($dbconn, "SELECT * FROM `coords` WHERE 1");
 if (!$result) {
   echo "An error occured when retrieving data.\n";
   exit;
 }
+*/
 ?>
 	<table border="0" cellspacing="2" cellpadding="2">
 <tr>
@@ -58,7 +59,7 @@ if (!$result) {
 
 
 <?php
-/*
+
 while ($row = pg_fetch_row($result)) {
 	$lat = $row[1];
 	$long = $row[0];
@@ -77,7 +78,5 @@ while ($row = pg_fetch_row($result)) {
 <td><font face="Arial, Helvetica, sans-serif"><script type="text/javascript">document.write(dist);</script></font></td>
 </tr>
 }
-*/
-?>
 
 </html>
