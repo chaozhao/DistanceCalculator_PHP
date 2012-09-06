@@ -11,16 +11,16 @@
 	<h1>Assignment 1</h1>
 
 	<p>Swinburne's location is -37.82, 145.04 </p>
+	<p>Please enter a latitude and a longitude to get distance </p>
 
-	<div id="form_container">
-		
+	<div id="form_container">	
 		<form id="form_476022" method="post" action="process.php">
 			<p>
-			<label class="description" for="element_1">Lat </label>
+			<label class="description" for="element_1">Latitude </label>
 			<input id="element_1" name="latitude"  type="text" value=""/> 
 			</p>		
 			<p>
-			<label class="description" for="element_2">Long </label>
+			<label class="description" for="element_2">Longitude </label>
 			<input id="element_2" name="longitude"  type="text" value=""/> 
 			</p>		
 			<p>
