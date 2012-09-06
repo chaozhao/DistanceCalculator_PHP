@@ -30,6 +30,7 @@ else
 $createtable = "CREATE TABLE coords (";
 $createtable .= "longitude decimal NOT NULL, ";
 $createtable .= "latitude decimal NOT NULL, ";
+$createtable .= "distance decimal NOT NULL,";
 $createtable .= "time_stamp timestamp NOT NULL,";
 $createtable .= "PRIMARY KEY (time_stamp));";
 

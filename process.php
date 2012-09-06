@@ -8,6 +8,23 @@
 
 <?php
 
+function distance($lat, $lon) 
+{
+  //-37.82, 145.04
+  $lat_swin = -37.82;
+  $lon_swin = 145.04;
+
+  $theta = $lon - $lon_swin;
+  $dist = sin(deg2rad($lat)) * sin(deg2rad($lat_swin)) +  cos(deg2rad($lat)) * cos(deg2rad($lat_swin)) * cos(deg2rad($theta));
+  $dist = acos($dist);
+  $dist = rad2deg($dist);
+  $miles = $dist * 60 * 1.1515;
+  $kilometers = $miles * 1.609344;
+  return $kilometers;
+}
+
+
+
 	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
 	$connstring .= "port=5432 ";
 	$connstring .= "dbname=d5esbqm1g7orap ";
@@ -18,7 +35,8 @@
 		
 	$long =  $_POST['longitude'];
 	$lat =  $_POST['latitude'];
-?>		
+?>	
+
 <script type="text/javascript">
 
 var swin = new LatLon(-37.82, 145.04); 
@@ -31,7 +49,12 @@ var resulttxt = "Coordinates <?php echo "latitude $lat, longitude $long"?> is " 
 //document.write(resulttxt);
 
 </script>
+
 <?php
+
+	//echo "The distance is ". distance($lat, $long) . " Kilometers<br>";
+	
+	$distance = distance($lat, $long);
 
 	if (!$dbconn) 
 	{
@@ -39,9 +62,9 @@ var resulttxt = "Coordinates <?php echo "latitude $lat, longitude $long"?> is " 
 	  exit;
 	}
 
-	$dbins = "INSERT INTO coords VALUES ($long, $lat, CURRENT_TIMESTAMP)";
+	$dbins = "INSERT INTO coords VALUES ($long, $lat, $distance, CURRENT_TIMESTAMP)";
 	pg_query($dbconn, $dbins);
-	$result = pg_query($dbconn, "SELECT longitude, latitude, time_stamp FROM coords");
+	$result = pg_query($dbconn, "SELECT longitude, latitude, distance, time_stamp FROM coords");
 	if (!$result) 
 	{
 	  echo "An error occured when retrieving data.\n";
@@ -60,13 +83,14 @@ while ($row = pg_fetch_row($result))
 {
 	$long = $row[0];
 	$lat = $row[1];
-	$timest = $row[2];
-
+	$distance = $row[2];
+	$timest = $row[3];
+	
 echo "<tr>";
-echo "<td> $timest </font></td>";
-echo "<td> $lat </font></td>";
-echo "<td> $long </font></td>";
-echo "<td>  </font></td>";
+echo "<td> $timest </td>";
+echo "<td> $lat </td>";
+echo "<td> $long </td>";
+echo "<td> $distance </td>";
 
 /*
 <script type="text/javascript">
@@ -78,6 +102,7 @@ echo "<td>  </font></td>";
 
 echo "</tr>";
 }
+
 echo "</table>";	
 
 ?>

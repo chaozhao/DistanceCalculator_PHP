@@ -5,39 +5,28 @@
 <title>HIT3311</title>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
 <script type="text/javascript" src="view.js"></script>
-
 </head>
+
 <body id="main_body" >
-	
+	<h1>Assignment 1</h1>
+	<p>Swinburne's location is -37.82, 145.04 </p>
+
 	<div id="form_container">
-	
-		<h1>Assignment 1</h1>
-		<form id="form_476022" class="appnitro"  method="post" action="process.php">
-			<div class="Input Form">
-			<p>This is your form description. Click here to edit.</p>
-			</div>						
-			<ul >
-				<li>
-				<label class="description" for="element_1">Lat </label>
-				<div>
-				<input id="element_1" name="latitude" class="element text medium" type="text" maxlength="255" value=""/> 
-				</div> 
-				</li>		
-
-				<li>
-				<label class="description" for="element_2">Long </label>
-				<div>
-				<input id="element_2" name="longitude" class="element text medium" type="text" maxlength="255" value=""/> 
-				</div> 
-				</li>		
 		
-				<li class="buttons">
-				 
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-				</li>
-			</ul>
+		<form id="form_476022" method="post" action="process.php">
+			<p>
+			<label class="description" for="element_1">Lat </label>
+			<input id="element_1" name="latitude"  type="text" value=""/> 
+			</p>		
+			<p>
+			<label class="description" for="element_2">Long </label>
+			<input id="element_2" name="longitude"  type="text" value=""/> 
+			</p>		
+			<p>
+			<input id="saveForm" type="submit" name="submit" value="Calculate" />
+			</p>	
 		</form>
-
 	</div>
-	</body>
+
+</body>
 </html>
