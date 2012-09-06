@@ -9,6 +9,7 @@
 
 <body id="main_body" >
 	<h1>Assignment 1</h1>
+
 	<p>Swinburne's location is -37.82, 145.04 </p>
 
 	<div id="form_container">
@@ -26,6 +27,11 @@
 			<input id="saveForm" type="submit" name="submit" value="Calculate" />
 			</p>	
 		</form>
+	</div>
+
+	<div>
+		<h1>Version 1</h1>
+		<p> By 6555985 and 6595979 </p>
 	</div>
 
 </body>

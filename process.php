@@ -37,22 +37,7 @@ function distance($lat, $lon)
 	$lat =  $_POST['latitude'];
 ?>	
 
-<script type="text/javascript">
-
-var swin = new LatLon(-37.82, 145.04); 
-var point = new LatLon(<?php echo "$lat, $long"?>); 
-			
-var dist = swin.distanceTo(point);
-
-var resulttxt = "Coordinates <?php echo "latitude $lat, longitude $long"?> is " + dist + " kilometres from Swinburne.";
-
-//document.write(resulttxt);
-
-</script>
-
 <?php
-
-	//echo "The distance is ". distance($lat, $long) . " Kilometers<br>";
 	
 	$distance = distance($lat, $long);
 
@@ -92,14 +77,6 @@ echo "<td> $lat </td>";
 echo "<td> $long </td>";
 echo "<td> $distance </td>";
 
-/*
-<script type="text/javascript">
-	var point = new LatLon(<?php echo "$lat, $long"?>); 
-	var dist = swin.distanceTo(point);
-	document.write(dist); 
-</script>;
-*/
-
 echo "</tr>";
 }
 
@@ -107,4 +84,10 @@ echo "</table>";
 
 ?>
 <a href="index.php">go back</a>
+
+	<div>
+		<h1>Version 1</h1>
+		<p> By 6555985 and 6595979 </p>
+	</div>
+
 </html>
