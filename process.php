@@ -40,7 +40,7 @@ function distance($lat, $lon)
 <?php
 	
 	$distance = distance($lat, $long);
-
+	
 	if (!$dbconn) 
 	{
 	  echo "An error occured while connecting.\n";
@@ -69,13 +69,14 @@ while ($row = pg_fetch_row($result))
 	$long = $row[0];
 	$lat = $row[1];
 	$distance = $row[2];
+	$distance =  number_format($distance, 4, '.', '');
 	$timest = $row[3];
 	
 echo "<tr>";
 echo "<td> $timest </td>";
 echo "<td> $lat </td>";
 echo "<td> $long </td>";
-echo "<td> $distance </td>";
+echo "<td> $distance Kms</td>";
 
 echo "</tr>";
 }

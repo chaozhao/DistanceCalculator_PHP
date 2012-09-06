@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HIT3311</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="all">
 <script type="text/javascript" src="view.js"></script>
 </head>
 
