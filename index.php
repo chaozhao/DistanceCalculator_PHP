@@ -54,7 +54,7 @@ $(document).ready(function() {
 	<div>
 		<h1>Version 1</h1>
 		<p> By 6555985 and 6595979 </p>
-		<p>This document last modified: <!--#echo var="LAST_MODIFIED" -- </p>
+		<p>This document last modified: <!--#echo var="LAST_MODIFIED" --> </p>
 	</div>
 
 </body>
