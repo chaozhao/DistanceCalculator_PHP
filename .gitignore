@@ -2,3 +2,5 @@ backup
 htdocs
 images
 phpPgAdmin
+logs.txt
+config.txt
