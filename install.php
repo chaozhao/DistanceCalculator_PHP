@@ -9,10 +9,11 @@
 	
 	$dbconn = pg_connect($connstring);
 
-	if (!$dbconn) {
+	if (!$dbconn) 
+	{
 	echo "An error occured.\n";
 	exit;
-}
+	}
 
 $drop = "Drop table coords";
 

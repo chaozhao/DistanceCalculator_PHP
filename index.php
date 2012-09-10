@@ -1,9 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HIT3311</title>
-<link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="all">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
 </script>
@@ -29,13 +30,14 @@ $(document).ready(function() {
 </script>
 </head>
 
-<body id="main_body" >
+<body>
+	
+
+	<div class="container" >
 	<h1>Assignment 1</h1>
 
 	<p>Swinburne's location is -37.82, 145.04 </p>
-	<p>Please enter a latitude and a longitude to get distance </p>
-
-	<div id="form_container">	
+	<p>Please enter a latitude and a longitude to get distance </p>	
 		<form id="myform" method="post" action="process.php">
 			<p>
 			<label for="latitude">Latitude </label>
@@ -51,7 +53,7 @@ $(document).ready(function() {
 		</form>
 	</div>
 
-	<div>
+	<div class="footer">
 		<p>Version 1</p>
 		<p>by 6555985 and 6595979 </p>
 		<p>created on: 10/09/2012 </p>
