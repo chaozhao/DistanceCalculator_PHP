@@ -1,11 +1,14 @@
-CREATE TABLE IF NOT EXISTS Coords
+DROP TABLE IF EXISTS Coords;
+DROP SEQUENCE auto_ID;
+
+CREATE TABLE Coords
 (
   longitude decimal  NOT NULL,
   latitude   decimal NOT NULL,
-  distance    decimal  NOT NULL,
   time_stamp  timestamp NOT NULL,
-  PRIMARY KEY (time_stamp)
-  );
+  ID Integer NOT NULL,
+  Constraint pk_ID PRIMARY KEY (ID)
+ );
 
-INSERT INTO Coords (latitude,longitude,distance,time_stamp)VALUES ($long, $lat, $distance,current_time);
+CREATE SEQUENCE auto_ID start 1;
 

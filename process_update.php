@@ -6,6 +6,7 @@
 </head>
 
 <?php
+
 function distance($lat, $lon) 
 {
   //-37.82, 145.04
@@ -21,33 +22,43 @@ function distance($lat, $lon)
   return $kilometers;
 }
 
-	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com "; 
-	//$connstring = "host=localhost ";
+	$connstring = "host=ec2-23-23-92-180.compute-1.amazonaws.com ";
+	//$connstring  = "host=localhost ";
 	$connstring .= "port=5432 ";
 	$connstring .= "dbname=d5esbqm1g7orap ";
 	$connstring .= "user=zmffjoapewndxl ";
-	$connstring .= "password=r7mnCO1hMRPy2R8ask5BCsd3s7";
+	$connstring .= "password=r7mnCO1hMRPy2R8ask5BCsd3s7 ";
+	$connstring .= "sslmode=require ";
 	
 	$dbconn = pg_connect($connstring);
-		
+	
 	$long =  $_POST['longitude'];
 	$lat =  $_POST['latitude'];
-	
+
 	if (!$dbconn) 
 	{
-	  echo "An error occured while connecting.\n";
-	  exit;
+	  echo "An error occured while connecting";
 	}
 
-	$insert = "INSERT INTO coords (longitude,latitude,time_stamp,ID)VALUES ($long, $lat, CURRENT_TIMESTAMP, nextval('auto_ID'))";
+	$nextvalquery = "select nextval('auto_ID');";
+	//$nextvalresult = pg_query($dbconn, $nextvalquery);
+	//$row = pg_fetch_row($result);
+	//$nextval = $row[0];
+	
+	$insert  = "INSERT INTO latitude_table (lat_ID,  latitude) Values ($nextval, $lat);";
+	$insert .= "INSERT INTO longitude_table (long_ID, longitude) Values ($nextval, $long);";
+	$insert .= "INSERT INTO time_table (Time_ID, time_stamp) Values ($nextval, CURRENT_TIMESTAMP);";
 
-	pg_query($dbconn, $insert);
+	//pg_query($dbconn, $insert);
 
-	$result = pg_query($dbconn, "SELECT longitude, latitude, time_stamp FROM coords");
+	$query  = "SELECT longitude_table.longitude, latitude_table.latitude, time_table.time_stamp ";
+	$query .= "FROM Time_table, longitude_table, latitude_table ";
+	$query .= "WHERE Time_table.time_id = longitude_table.long_id and longitude_table.long_id = latitude_table.lat_id;";
+
+	$result = pg_query($dbconn, $query);
 	if (!$result) 
 	{
-	  echo "An error occured when retrieving data.\n";
-	  //exit;
+	  echo "An error occured when retrieving data.";
 	}
 
 echo " <table border=1> ";
@@ -66,13 +77,12 @@ while ($row = pg_fetch_row($result))
 	$distance = distance($lat, $long);
 	$distance =  number_format($distance, 4, '.', '');
 
-echo "<tr>";
-echo "<td> $timest </td>";
-echo "<td> $lat </td>";
-echo "<td> $long </td>";
-echo "<td> $distance Kms</td>";
-
-echo "</tr>";
+	echo "<tr>";
+	echo "<td> $timest </td>";
+	echo "<td> $lat </td>";
+	echo "<td> $long </td>";
+	echo "<td> $distance Kms</td>";
+	echo "</tr>";
 }
 
 echo "</table>";	
