@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 	<p>Swinburne's location is -37.82, 145.04 </p>
 	<p>Please enter a latitude and a longitude to get distance </p>	
-		<form id="myform" method="post" action="process.php">
+		<form id="myform" method="post" action="process_update.php">
 			<p>
 			<label for="latitude">Latitude </label>
 			<input id="latitude" name="latitude"  type="text" /> 
