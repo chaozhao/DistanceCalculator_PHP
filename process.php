@@ -81,7 +81,6 @@ echo "</table>";
 <a href="index.php">go back</a>
 
 	<div>
-		<p>Version 1</p>
 		<p>by 6555985 and 6595979 </p>
 		<p>created on: 10/09/2012 </p>
 	</div>

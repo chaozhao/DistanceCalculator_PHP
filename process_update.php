@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="all">
 <title>HIT3311</title>
 </head>
 
@@ -91,9 +92,8 @@ echo "</table>";
 <a href="index.php">go back</a>
 
 	<div>
-		<p>Version 1</p>
 		<p>by 6555985 and 6595979 </p>
-		<p>created on: 10/09/2012 </p>
+		<p>created on: 14/09/2012 </p>
 	</div>
 
 </html>
