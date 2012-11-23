@@ -53,7 +53,8 @@ $(document).ready(function() {
 
 	<div class="footer">
 		<p>by 6555985 and 6595979 </p>
-		<p>created on: 10/09/2012 </p>
+		<p>created on 10/09/2012 </p>
+		<p>modified on 24/11/2012 </p>
 	</div>
 
 </body>
